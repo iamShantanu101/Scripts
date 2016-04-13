@@ -39,7 +39,7 @@ sudo apt-get update || OwnError "Updating Cache Failed :("
 #Install Common Softwares
 clear
 echo "Installing Git Vim Filezilla Google-Chrome Skype Oracle-Jdk Opera"
-sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable skype sni-qt sni-qt:i386 libasound2-plugins:i386 openjdk-7-jre icedtea-7-plugin openjdk-7-jdk diodon diodon-plugins ubuntu-restricted-extras p7zip-full p7zip-rar nautilus-open-terminal nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev ruby-dev ruby1.9.1 || OwnError "Installation Failed :("
+sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable skype sni-qt sni-qt:i386 libasound2-plugins:i386 openjdk-7-jre icedtea-7-plugin openjdk-7-jdk diodon diodon-plugins ubuntu-restricted-extras p7zip-full p7zip-rar nautilus-open-terminal nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev ruby-dev ruby2.1 || OwnError "Installation Failed :("
 #Install SASS
 clear
 echo "Install SASS"
