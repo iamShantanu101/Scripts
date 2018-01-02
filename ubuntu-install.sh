@@ -43,7 +43,7 @@ sudo apt-get install -y openjdk-7-jdk openjdk-7-jre icedtea-7-plugin
 #Install Common Softwares
 clear
 echo "Installing Git Vim Filezilla Google-Chrome Skype Oracle-Jdk Opera"
-sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable sni-qt sni-qt:i386 libasound2-plugins:i386 ubuntu-restricted-extras p7zip-full p7zip-rar nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev libglib2.0-dev ruby ruby-dev phpcs || OwnError "Installation Failed :("
+sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable sni-qt sni-qt:i386 libasound2-plugins:i386 ubuntu-restricted-extras p7zip-full p7zip-rar nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev libglib2.0-dev ruby ruby-dev phpunit || OwnError "Installation Failed :("
 
 # Install diodon and diodon-plugins
 sudo add-apt-repository -y ppa:diodon-team/stable
