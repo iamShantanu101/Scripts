@@ -17,15 +17,14 @@ sudo apt-get install python-software-properties || OwnError "Unable To Install P
 #Google Repository
 clear
 echo "Install Repository For Google..."
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
- || OwnError "Unable To Fetch Google Repository :("
-echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
- || OwnError "Unable To Add Google Repository :("
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - || OwnError "Unable To Fetch Google Repository :("
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list || OwnError "Unable To Add Google Repository :("
 
 #NodeJs Repository
 clear
 echo "Install Repository For NodeJs..."
-sudo add-apt-repository -y ppa:chris-lea/node.js || OwnError "Unable To NodeJs Repository :("
+curl -sL https://deb.nodesource.com/setup_9.x | sudo -E bash -
+
 #Shutter Repository
 clear
 echo "Install Repository For Shutter..."
