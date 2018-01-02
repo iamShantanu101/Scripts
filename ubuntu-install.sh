@@ -43,17 +43,24 @@ sudo apt-get install -y openjdk-7-jdk openjdk-7-jre icedtea-7-plugin
 #Install Common Softwares
 clear
 echo "Installing Git Vim Filezilla Google-Chrome Skype Oracle-Jdk Opera"
-sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable sni-qt sni-qt:i386 libasound2-plugins:i386 ubuntu-restricted-extras p7zip-full p7zip-rar nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev libglib2.0-dev ruby ruby-dev || OwnError "Installation Failed :("
+sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable sni-qt sni-qt:i386 libasound2-plugins:i386 ubuntu-restricted-extras p7zip-full p7zip-rar nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev libglib2.0-dev ruby ruby-dev phpcs || OwnError "Installation Failed :("
 
 # Install diodon and diodon-plugins
-sudo add-apt-repository ppa:diodon-team/stable
+sudo add-apt-repository -y ppa:diodon-team/stable
 sudo apt-get update
-sudo apt-get install diodon
+sudo apt-get install -y diodon
 
 
 # Install Skype
 echo "Installing Skype"
-wget https://repo.skype.com/latest/skypeforlinux-64.deb &&  dpkg -i skypeforlinux-64.deb 
+wget https://repo.skype.com/latest/skypeforlinux-64.deb &&  dpkg -i skypeforlinux-64.deb && rm skypeforlinux-64.deb
+
+# Install phpcs
+curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+
+# Install zoom
+echo Installing zoom
+wget https://zoom.us/client/latest/zoom_amd64.deb && dpkg -i zoom_amd64.deb && rm zoom_amd64.deb
 
 #Install SASS
 clear
