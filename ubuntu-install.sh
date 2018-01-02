@@ -3,7 +3,7 @@
 OwnError()
 {
 #Redirect All STDIN 2 STDOUT
-echo $@ >&2
+echo "$@" >&2
 exit 1
 }
 # Unhide Startup
@@ -17,13 +17,11 @@ sudo apt-get install python-software-properties || OwnError "Unable To Install P
 #Google Repository
 clear
 echo "Install Repository For Google..."
-wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add - || OwnError "Unable To Fetch Google Repository :("
-sudo sh -c 'echo "deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main" > /etc/apt/sources.list.d/google-chrome.list' || OwnError "Unable To Add Google Repository :("
+wget -q -O - https://dl-ssl.google.com/linux/linux_signing_key.pub | sudo apt-key add -
+ || OwnError "Unable To Fetch Google Repository :("
+echo 'deb [arch=amd64] http://dl.google.com/linux/chrome/deb/ stable main' | sudo tee /etc/apt/sources.list.d/google-chrome.list
+ || OwnError "Unable To Add Google Repository :("
 
-#Skype Repository
-clear
-echo "Install Repository For Skype..."
-sudo sh -c 'echo "deb http://archive.canonical.com/ubuntu/ $(lsb_release -sc) partner" >> /etc/apt/sources.list.d/canonical_partner.list' || OwnError "Unable To Add Skype Repository :("
 #NodeJs Repository
 clear
 echo "Install Repository For NodeJs..."
@@ -36,10 +34,28 @@ sudo add-apt-repository -y ppa:shutter/ppa || OwnError "Unable To Add Shutter Re
 clear
 echo "Updating Cache..."
 sudo apt-get update || OwnError "Updating Cache Failed :("
+
+# openjdk install
+echo "Adding ppa for openjdk install"
+sudo add-apt-repository ppa:openjdk-r/ppa
+sudo apt-get update
+sudo apt-get install -y openjdk-7-jdk openjdk-7-jre icedtea-7-plugin
+
 #Install Common Softwares
 clear
 echo "Installing Git Vim Filezilla Google-Chrome Skype Oracle-Jdk Opera"
-sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable skype sni-qt sni-qt:i386 libasound2-plugins:i386 openjdk-7-jre icedtea-7-plugin openjdk-7-jdk diodon diodon-plugins ubuntu-restricted-extras p7zip-full p7zip-rar nautilus-open-terminal nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev ruby-dev ruby2.1 || OwnError "Installation Failed :("
+sudo apt-get -y install git-core openssh-server shutter pv vim vlc curl filezilla google-chrome-stable sni-qt sni-qt:i386 libasound2-plugins:i386 ubuntu-restricted-extras p7zip-full p7zip-rar gnome-terminal:i386 gnome-terminal nodejs libcurl4-gnutls-dev libxml2 libxml2-dev libxslt1-dev libglib2.0-dev ruby ruby-dev || OwnError "Installation Failed :("
+
+# Install diodon and diodon-plugins
+sudo add-apt-repository ppa:diodon-team/stable
+sudo apt-get update
+sudo apt-get install diodon
+
+
+# Install Skype
+echo "Installing Skype"
+wget https://repo.skype.com/latest/skypeforlinux-64.deb &&  dpkg -i skypeforlinux-64.deb 
+
 #Install SASS
 clear
 echo "Install SASS"
