@@ -55,6 +55,7 @@ sudo apt-get install -y diodon
 echo "Installing Skype"
 skype_setup='skypeforlinux-64.deb'
 if [ -f $skype_setup ] 
+then	
     sudo dpkg -i skypeforlinux-64.deb
 else
     wget https://repo.skype.com/latest/skypeforlinux-64.deb &&  sudo dpkg -i skypeforlinux-64.deb 
