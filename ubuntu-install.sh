@@ -53,14 +53,14 @@ sudo apt-get install -y diodon
 
 # Install Skype
 echo "Installing Skype"
-wget https://repo.skype.com/latest/skypeforlinux-64.deb &&  dpkg -i skypeforlinux-64.deb && rm skypeforlinux-64.deb
+wget https://repo.skype.com/latest/skypeforlinux-64.deb &&  sudo dpkg -i skypeforlinux-64.deb && sudo rm skypeforlinux-64.deb
 
 # Install phpcs
 curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 
 # Install zoom
 echo Installing zoom
-wget https://zoom.us/client/latest/zoom_amd64.deb && dpkg -i zoom_amd64.deb && rm zoom_amd64.deb
+wget https://zoom.us/client/latest/zoom_amd64.deb && sudo dpkg -i zoom_amd64.deb && sudo rm zoom_amd64.deb
 
 #Install SASS
 clear
