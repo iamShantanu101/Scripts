@@ -62,7 +62,7 @@ else
 fi    
 
 # Install phpcs
-curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
+sudo curl -OL https://squizlabs.github.io/PHP_CodeSniffer/phpcs.phar
 
 # Install zoom
 echo Installing zoom
